@@ -17,7 +17,7 @@ steps:
       - test "$(uname -s)" = Darwin
       - test "$(uname -m)" = arm64
       - xcodebuild -version
-      - ci_keychain="$CI_WORKSPACE/.woodpecker-ci.keychain-db"
+      - ci_keychain="$HOME/Library/Keychains/woodpecker-ci-${CI_PIPELINE_NUMBER}.keychain-db"
       - derived_data="$CI_WORKSPACE/.derived-data"
       - cleanup() { security delete-keychain "$ci_keychain" >/dev/null 2>&1 || rm -f "$ci_keychain"; }
       - trap cleanup EXIT
