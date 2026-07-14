@@ -15,7 +15,9 @@ available.
 
 The macOS workflow requires a second Woodpecker agent instance on macVM with a
 unique token, state directory, service label, health port, and exact labels for
-`PineIT-ca/pinemeter`. Do not relabel or share the PineSeed agent.
+`PineIT-ca/pinemeter`, including `hostname=macvm-pinemeter` and
+`trust=public-main-only`. It runs as a separate service user and cannot read
+the PineSeed agent token. Do not relabel or share the PineSeed agent.
 
 Rollback is to disable Pinemeter in Woodpecker, revoke only its dedicated agent
 token, stop only its dedicated service, and leave both GitHub Actions workflows

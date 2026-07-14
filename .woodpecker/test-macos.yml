@@ -6,8 +6,8 @@ labels:
   repo: PineIT-ca/pinemeter
   platform: darwin/arm64
   backend: local
-  hostname: macvm
-  trust: trusted-public-push
+  hostname: macvm-pinemeter
+  trust: public-main-only
 
 steps:
   xcode-tests:

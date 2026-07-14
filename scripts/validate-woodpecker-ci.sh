@@ -13,7 +13,8 @@ done
 grep -Fq 'repo: PineIT-ca/pinemeter' "$macos"
 grep -Fq 'platform: darwin/arm64' "$macos"
 grep -Fq 'backend: local' "$macos"
-grep -Fq 'trust: trusted-public-push' "$macos"
+grep -Fq 'hostname: macvm-pinemeter' "$macos"
+grep -Fq 'trust: public-main-only' "$macos"
 grep -Fq 'xcodebuild test' "$macos"
 if grep -Fq 'pull_request' "$macos"; then
   echo 'macOS local-backend workflow must not execute public pull-request code' >&2
