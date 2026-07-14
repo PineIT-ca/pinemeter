@@ -1,0 +1,21 @@
+when:
+  - event: [push, pull_request]
+    branch: main
+  - event: manual
+
+labels:
+  platform: linux/amd64
+  backend: docker
+  hostname: ci
+
+steps:
+  site-contract:
+    image: alpine:3.22.1
+    commands:
+      - test -f site/index.html
+      - grep -q softwareVersion site/index.html
+      - cp -R site /tmp/pinemeter-site
+      - >-
+        sed -i 's/"softwareVersion": "[^"]*"/"softwareVersion": "0.0.0-shadow"/'
+        /tmp/pinemeter-site/index.html
+      - grep -q 0.0.0-shadow /tmp/pinemeter-site/index.html
