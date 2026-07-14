@@ -17,16 +17,8 @@ steps:
       - test "$(uname -s)" = Darwin
       - test "$(uname -m)" = arm64
       - xcodebuild -version
-      - ci_keychain="$HOME/Library/Keychains/woodpecker-ci-${CI_PIPELINE_NUMBER}.keychain-db"
       - derived_data="$CI_WORKSPACE/.derived-data"
-      - cleanup() { security delete-keychain "$ci_keychain" >/dev/null 2>&1 || rm -f "$ci_keychain"; }
-      - trap cleanup EXIT
-      - security create-keychain -p woodpecker-ci-ephemeral "$ci_keychain"
-      - security set-keychain-settings -lut 21600 "$ci_keychain"
-      - security unlock-keychain -p woodpecker-ci-ephemeral "$ci_keychain"
-      - security list-keychains -d user -s "$ci_keychain"
-      - security default-keychain -d user -s "$ci_keychain"
       - xcodebuild build-for-testing -project Pinemeter.xcodeproj -scheme Pinemeter -configuration Debug -derivedDataPath "$derived_data" CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
       - test_bundle="$derived_data/Build/Products/Debug/Pinemeter.app/Contents/PlugIns/PinemeterTests.xctest"
       - test -d "$test_bundle"
-      - DYLD_LIBRARY_PATH="$derived_data/Build/Products/Debug/Pinemeter.app/Contents/MacOS:$derived_data/Build/Products/Debug" /Applications/Xcode.app/Contents/Developer/usr/bin/xctest "$test_bundle"
+      - sudo -n /usr/local/libexec/woodpecker/pinemeter-xctest-bridge

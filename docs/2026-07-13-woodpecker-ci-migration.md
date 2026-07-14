@@ -7,10 +7,12 @@ pushes, pull requests, and manual runs. It does not publish the public site.
 The existing Pages workflow remains the production deployment rollback path
 until a separately approved GitHub Pages source and credential cutover.
 
-`test-macos.yml` builds the Xcode test bundle and runs it headlessly under the
-dedicated `_woodpecker_pm` service account. Each run creates and removes a
-disposable Keychain, so Keychain repository tests retain parity without using a
-logged-in user's Aqua session or Keychain. It runs only for main pushes. The
+`test-macos.yml` builds the Xcode test bundle under the dedicated
+`_woodpecker_pm` service account, then calls the host's fixed, argument-free
+`pinemeter-xctest-bridge`. The bridge enters the current console Aqua bootstrap
+for Keychain services but runs the test bundle as `_woodpecker_pm`, never as
+root or the logged-in user. Each run uses a disposable service-account
+Keychain. It runs only for main pushes. The
 repository is public, so fork pull-request
 code must never execute on the persistent native macVM local backend. GitHub
 Actions remains the pull-request test path until an ephemeral macOS executor is

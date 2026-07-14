@@ -16,10 +16,11 @@ grep -Fq 'backend: local' "$macos"
 grep -Fq 'hostname: macvm-pinemeter' "$macos"
 grep -Fq 'trust: public-main-only' "$macos"
 grep -Fq 'xcodebuild build-for-testing' "$macos"
-grep -Fq 'security create-keychain' "$macos"
-grep -Fq '$HOME/Library/Keychains/' "$macos"
-grep -Fq '/usr/bin/xctest' "$macos"
-grep -Fq 'trap cleanup EXIT' "$macos"
+grep -Fq 'sudo -n /usr/local/libexec/woodpecker/pinemeter-xctest-bridge' "$macos"
+if [ "$(grep -Ec '^[[:space:]]*-[[:space:]]+sudo ' "$macos")" -ne 1 ]; then
+  echo 'macOS workflow must contain exactly one sudo command' >&2
+  exit 1
+fi
 if grep -Fq 'pull_request' "$macos"; then
   echo 'macOS local-backend workflow must not execute public pull-request code' >&2
   exit 1
@@ -36,8 +37,8 @@ for file in "$macos" "$site"; do
   fi
 done
 
-if grep -Fq 'launchctl asuser' "$macos"; then
-  echo 'macOS workflow must remain headless and outside the console Aqua session' >&2
+if grep -Eq '(launchctl asuser|security create-keychain)' "$macos"; then
+  echo 'macOS workflow must call only the fixed, argument-free xctest bridge' >&2
   exit 1
 fi
 
