@@ -7,8 +7,8 @@ pushes, pull requests, and manual runs. It does not publish the public site.
 The existing Pages workflow remains the production deployment rollback path
 until a separately approved GitHub Pages source and credential cutover.
 
-`test-macos.yml` ports the Xcode test command but runs only for main pushes or
-operator-authorized manual runs. The repository is public, so fork pull-request
+`test-macos.yml` ports the Xcode test command but runs only for main pushes. The
+repository is public, so fork pull-request
 code must never execute on the persistent native macVM local backend. GitHub
 Actions remains the pull-request test path until an ephemeral macOS executor is
 available.
