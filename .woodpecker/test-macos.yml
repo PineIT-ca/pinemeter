@@ -1,0 +1,21 @@
+when:
+  - event: push
+    branch: main
+  - event: manual
+
+labels:
+  repo: PineIT-ca/pinemeter
+  platform: darwin/arm64
+  backend: local
+  hostname: macvm
+  trust: trusted-public-push
+
+steps:
+  xcode-tests:
+    image: /bin/bash
+    commands:
+      - set -euo pipefail
+      - test "$(uname -s)" = Darwin
+      - test "$(uname -m)" = arm64
+      - xcodebuild -version
+      - xcodebuild test -project Pinemeter.xcodeproj -scheme Pinemeter -configuration Debug -skip-testing:PinemeterTests/MenuBarIconSnapshotTests CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
