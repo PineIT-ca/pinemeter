@@ -15,8 +15,9 @@ root or the logged-in user. Each run uses a disposable service-account
 Keychain. It runs only for main pushes. The
 repository is public, so fork pull-request
 code must never execute on the persistent native macVM local backend. GitHub
-Actions remains the pull-request test path until an ephemeral macOS executor is
-available.
+Actions is retained only for pull-request tests until an ephemeral macOS
+Woodpecker executor is available. The superseded GitHub Actions main-push path
+is disabled after Woodpecker pipeline 16 passed all 198 tests.
 
 The macOS workflow requires a second Woodpecker agent instance on macVM with a
 unique token, state directory, service label, health port, and exact labels for

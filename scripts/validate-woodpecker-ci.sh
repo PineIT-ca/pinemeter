@@ -4,11 +4,18 @@ set -euo pipefail
 root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
 macos="$root/.woodpecker/test-macos.yml"
 site="$root/.woodpecker/site.yml"
+actions_test="$root/.github/workflows/test.yml"
 
 for file in "$macos" "$site"; do
   test -f "$file"
   ruby -e 'require "yaml"; YAML.safe_load(File.read(ARGV.fetch(0)), aliases: true)' "$file"
 done
+
+grep -Fq 'pull_request:' "$actions_test"
+if grep -Fq '  push:' "$actions_test"; then
+  echo 'superseded GitHub Actions main-push test path must remain disabled' >&2
+  exit 1
+fi
 
 grep -Fq 'repo: PineIT-ca/pinemeter' "$macos"
 grep -Fq 'platform: darwin/arm64' "$macos"
