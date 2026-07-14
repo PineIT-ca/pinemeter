@@ -15,7 +15,10 @@ grep -Fq 'platform: darwin/arm64' "$macos"
 grep -Fq 'backend: local' "$macos"
 grep -Fq 'hostname: macvm-pinemeter' "$macos"
 grep -Fq 'trust: public-main-only' "$macos"
-grep -Fq 'xcodebuild test' "$macos"
+grep -Fq 'xcodebuild build-for-testing' "$macos"
+grep -Fq 'security create-keychain' "$macos"
+grep -Fq '/usr/bin/xctest' "$macos"
+grep -Fq 'trap cleanup EXIT' "$macos"
 if grep -Fq 'pull_request' "$macos"; then
   echo 'macOS local-backend workflow must not execute public pull-request code' >&2
   exit 1
@@ -31,5 +34,10 @@ for file in "$macos" "$site"; do
     exit 1
   fi
 done
+
+if grep -Fq 'launchctl asuser' "$macos"; then
+  echo 'macOS workflow must remain headless and outside the console Aqua session' >&2
+  exit 1
+fi
 
 printf 'Pinemeter Woodpecker workflow validation passed.\n'
