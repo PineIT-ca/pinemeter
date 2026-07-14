@@ -17,6 +17,7 @@ grep -Fq 'hostname: macvm-pinemeter' "$macos"
 grep -Fq 'trust: public-main-only' "$macos"
 grep -Fq 'xcodebuild build-for-testing' "$macos"
 grep -Fq 'security create-keychain' "$macos"
+grep -Fq '$HOME/Library/Keychains/' "$macos"
 grep -Fq '/usr/bin/xctest' "$macos"
 grep -Fq 'trap cleanup EXIT' "$macos"
 if grep -Fq 'pull_request' "$macos"; then
