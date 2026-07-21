@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Pinemeter - Track Claude.ai Usage | macOS Menu Bar App</title>
+    <meta name="title" content="Pinemeter - Track Claude.ai Usage | macOS Menu Bar App">
+    <meta name="description" content="A macOS menu bar app that monitors Claude.ai plan usage in real-time, with optional ChatGPT quota and Gemini status visibility when configured. Track 5-hour sessions, weekly limits, Sonnet usage, and get smart notifications.">
+    <meta name="keywords" content="Pinemeter, Claude.ai, ChatGPT quota, Gemini status, usage tracker, menu bar app, macOS, Anthropic, OpenAI, Google, AI usage, session limits, Claude monitor">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Edd Mann">
+    <meta name="theme-color" content="#e07a4f">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://eddmann.com/Pinemeter/">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eddmann.com/Pinemeter/">
+    <meta property="og:title" content="Pinemeter - Track Claude.ai Usage">
+    <meta property="og:description" content="A macOS menu bar app that monitors Claude.ai plan usage in real-time, with optional ChatGPT quota and Gemini status visibility when configured. Track 5-hour sessions, weekly limits, Sonnet usage, and get smart notifications.">
+    <meta property="og:image" content="https://eddmann.com/Pinemeter/preview.png">
+    <meta property="og:site_name" content="Pinemeter">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://eddmann.com/Pinemeter/">
+    <meta property="twitter:title" content="Pinemeter - Track Claude.ai Usage">
+    <meta property="twitter:description" content="A macOS menu bar app that monitors Claude.ai plan usage in real-time, with optional ChatGPT quota and Gemini status visibility when configured. Track 5-hour sessions, weekly limits, Sonnet usage, and get smart notifications.">
+    <meta property="twitter:image" content="https://eddmann.com/Pinemeter/preview.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pinemeter",
+        "operatingSystem": "macOS 14.0 or later",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "A macOS menu bar app that monitors Claude.ai plan usage in real-time, with optional ChatGPT quota and Gemini status visibility when configured. Track 5-hour sessions, weekly limits, Sonnet usage, and get smart notifications.",
+        "downloadUrl": "https://github.com/PineIT-ca/pinemeter/releases/latest",
+        "softwareVersion": "1.4.0",
+        "author": {
+            "@type": "Person",
+            "name": "Edd Mann"
+        },
+        "image": "https://eddmann.com/Pinemeter/logo.png",
+        "screenshot": "https://eddmann.com/Pinemeter/preview.png"
+    }
+    </script>
+
+    <!-- Theme flash prevention -->
+    <script>
+        if (localStorage.getItem('theme-preference') === 'dark' ||
+            (!localStorage.getItem('theme-preference') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['DM Sans', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'coral': {
+                            50: '#fff7f5',
+                            100: '#ffede8',
+                            200: '#ffd9cf',
+                            300: '#ffbcaa',
+                            400: '#ff9476',
+                            500: '#e07a4f',
+                            600: '#cc6640',
+                            700: '#ab5235',
+                            800: '#8c452f',
+                            900: '#753d2c',
+                        },
+                        'slate': {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        * {
+            font-family: 'DM Sans', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #e07a4f 0%, #cc6640 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            box-shadow:
+                0 4px 24px rgba(0, 0, 0, 0.04),
+                0 1px 2px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 20px 40px rgba(224, 122, 79, 0.12),
+                0 8px 16px rgba(0, 0, 0, 0.04);
+            border-color: rgba(224, 122, 79, 0.3);
+        }
+
+        /* Dark mode styles */
+        html.dark body {
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        html.dark .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        html.dark .glass-card:hover {
+            background: rgba(30, 41, 59, 0.85);
+            box-shadow:
+                0 20px 40px rgba(224, 122, 79, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        html.dark .bg-pattern {
+            background-color: #0f172a;
+            background-image:
+                linear-gradient(180deg, #0f172a 0%, #1e293b 100%),
+                radial-gradient(rgba(224, 122, 79, 0.06) 1px, transparent 1px);
+            background-blend-mode: normal, overlay;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #e07a4f 0%, #cc6640 100%);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(224, 122, 79, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(224, 122, 79, 0.4);
+        }
+
+        .terminal {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            box-shadow:
+                0 24px 48px rgba(0, 0, 0, 0.12),
+                0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .terminal-header {
+            background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+            border-bottom: 1px solid #475569;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, rgba(224, 122, 79, 0.1) 0%, rgba(204, 102, 64, 0.1) 100%);
+            border: 1px solid rgba(224, 122, 79, 0.2);
+            border-radius: 16px;
+        }
+
+        .app-icon-wrapper {
+            filter: drop-shadow(0 24px 48px rgba(224, 122, 79, 0.25));
+        }
+
+        .opacity-0-initial { opacity: 0; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .stagger-1 { animation-delay: 0.1s !important; }
+        .stagger-2 { animation-delay: 0.2s !important; }
+        .stagger-3 { animation-delay: 0.3s !important; }
+        .stagger-4 { animation-delay: 0.4s !important; }
+        .stagger-5 { animation-delay: 0.5s !important; }
+        .stagger-6 { animation-delay: 0.6s !important; }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float,
+            .animate-fade-in,
+            .animate-fade-in-up,
+            [class*="stagger-"] {
+                animation: none !important;
+            }
+            .opacity-0-initial {
+                opacity: 1;
+            }
+            .glass-card:hover {
+                transform: none;
+            }
+        }
+
+        /* Subtle background pattern */
+        .bg-pattern {
+            background-image: radial-gradient(rgba(224, 122, 79, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Hide scrollbar but allow scrolling */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 dark:text-slate-200 antialiased overflow-x-hidden bg-pattern">
+    <!-- Theme Toggle Button -->
+    <button class="js-theme-toggle fixed top-6 right-6 z-50 p-3 rounded-2xl bg-white/70 dark:bg-slate-800/70 backdrop-blur-lg border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300"
+        aria-label="Toggle dark mode">
+        <svg class="w-5 h-5 text-slate-600 dark:text-slate-300 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+        <svg class="w-5 h-5 text-slate-600 dark:text-slate-300 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+        </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 py-20">
+        <div class="max-w-5xl mx-auto text-center">
+            <!-- App Icon -->
+            <div class="mb-12 animate-fade-in-up stagger-1">
+                <div class="app-icon-wrapper inline-block animate-float">
+                    <img src="logo.png" alt="Pinemeter" class="w-36 h-36 mx-auto rounded-[28%]">
+                </div>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight animate-fade-in-up stagger-2 text-slate-900 dark:text-white">
+                Track <span class="gradient-text">Claude.ai</span> Usage
+            </h1>
+
+            <!-- Tagline -->
+            <p class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up stagger-3">
+                Keep track of Claude.ai plan usage at a glance, with optional ChatGPT quota and Gemini status visibility when configured. A lightweight macOS menu bar app for power users.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 animate-fade-in-up stagger-4">
+                <a href="#installation" class="btn-primary px-8 py-4 text-lg font-semibold text-white inline-flex items-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download for macOS
+                </a>
+                <a href="https://github.com/PineIT-ca/pinemeter" class="px-8 py-4 text-lg font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors inline-flex items-center gap-3 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-slate-300 dark:hover:border-slate-600 bg-white/50 dark:bg-slate-800/50 backdrop-blur">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                </a>
+            </div>
+
+            <!-- macOS Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 dark:bg-slate-800/60 backdrop-blur border border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400 animate-fade-in-up stagger-5">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                Requires macOS 14.0 Sonoma or later
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="relative px-6 py-24">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Everything you need to stay informed</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto">Powerful features designed for Claude.ai power users who want complete visibility into Claude.ai usage, plus optional ChatGPT quota and Gemini status visibility.</p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="glass-card p-8 opacity-0-initial stagger-1">
+                    <div class="feature-icon w-14 h-14 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-coral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Claude.ai Monitoring</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Track Claude.ai 5-hour session limits, 7-day weekly usage, and Sonnet-specific limits in real-time. Never get caught off guard by hitting your limits.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card p-8 opacity-0-initial stagger-2">
+                    <div class="feature-icon w-14 h-14 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-coral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Menu Bar Indicator</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Color-coded gauge icon in your menu bar. Green for safe, yellow for warning, red for critical - see your status at a glance.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card p-8 opacity-0-initial stagger-3">
+                    <div class="feature-icon w-14 h-14 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-coral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Smart Notifications</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Configurable warning and critical thresholds. Get notified before you hit your limits, not after.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="glass-card p-8 opacity-0-initial stagger-4">
+                    <div class="feature-icon w-14 h-14 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-coral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Auto-refresh</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Automatic Claude.ai usage updates every 1, 5, or 10 minutes. Set it and forget it - your Claude.ai usage data is always up to date.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="glass-card p-8 opacity-0-initial stagger-5">
+                    <div class="feature-icon w-14 h-14 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-coral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">JSON Export</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Export usage data as JSON for integration with external tools, scripts, and dashboards (e.g. Claude Code statusline).</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="glass-card p-8 opacity-0-initial stagger-6">
+                    <div class="feature-icon w-14 h-14 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-coral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Secure Storage</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Claude session keys, ChatGPT session cookies, and Gemini API keys are stored through macOS Keychain-backed boundaries. Diagnostics are sanitized and credentials never leave your machine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Provider Setup Section -->
+    <section class="relative px-6 py-24">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Provider setup that matches how you work</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg max-w-3xl mx-auto">Start with Claude.ai monitoring, then add ChatGPT or Gemini when you want extra provider visibility.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 opacity-0-initial stagger-1">
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Claude.ai</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Import a signed-in browser session or paste a Claude <code>sessionKey</code>/Cookie header. Pinemeter tracks 5-hour, weekly, and Sonnet usage windows.</p>
+                </div>
+                <div class="glass-card p-8 opacity-0-initial stagger-2">
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">ChatGPT</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Optional quota visibility uses a local browser session when configured. If ChatGPT is unavailable or rejected, Claude monitoring continues.</p>
+                </div>
+                <div class="glass-card p-8 opacity-0-initial stagger-3">
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Gemini</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Optional Gemini status visibility uses an API key entered in Settings and stored in Keychain, with sanitized status diagnostics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diagnostics Section -->
+    <section class="relative px-6 py-24">
+        <div class="max-w-5xl mx-auto">
+            <div class="glass-card p-8 md:p-10 opacity-0-initial">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white">Private by default, diagnosable when something breaks</h2>
+                <div class="grid md:grid-cols-2 gap-8 text-slate-500 dark:text-slate-400 leading-relaxed">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Privacy and storage</h3>
+                        <ul class="space-y-2 list-disc pl-5">
+                            <li>Claude session keys, ChatGPT session cookies, and Gemini API keys are stored locally through Keychain boundaries.</li>
+                            <li>Access-token material remains transient where applicable.</li>
+                            <li>Usage exports are local JSON files under <code>~/.pinemeter/usage.json</code>, with legacy <code>~/.claudemeter/usage.json</code> compatibility for older scripts.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Troubleshooting and reset</h3>
+                        <ul class="space-y-2 list-disc pl-5">
+                            <li>Chromium imports may request Safe Storage Keychain access; Safari imports may require Full Disk Access.</li>
+                            <li>Settings exposes provider-specific repair, reconnect, and clear actions.</li>
+                            <li>Unavailable, rejected, and rate-limited provider states show sanitized copyable errors without raw credentials.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="relative px-6 py-24">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Install in seconds</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">Get up and running with a single command using Homebrew.</p>
+            </div>
+
+            <!-- Terminal -->
+            <div class="terminal max-w-2xl mx-auto opacity-0-initial">
+                <div class="terminal-header px-4 py-3 flex items-center gap-2">
+                    <div class="terminal-dot bg-red-500"></div>
+                    <div class="terminal-dot bg-yellow-500"></div>
+                    <div class="terminal-dot bg-green-500"></div>
+                    <span class="ml-4 text-sm text-slate-400">Terminal</span>
+                </div>
+                <div class="flex items-center py-4 pl-4 pr-2 md:pl-6 md:pr-4">
+                    <div class="relative flex-1 overflow-hidden">
+                        <div class="overflow-x-auto scrollbar-hide">
+                            <div class="flex items-center gap-2 md:gap-3 whitespace-nowrap pr-6">
+                                <span class="text-green-400 font-medium">$</span>
+                                <code class="text-slate-200 text-sm md:text-lg">brew install eddmann/tap/pinemeter</code>
+                            </div>
+                        </div>
+                        <div class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-800 to-transparent pointer-events-none md:hidden"></div>
+                    </div>
+                    <button class="js-copy-command ml-2 p-2 rounded-lg hover:bg-white/10 transition-colors group flex-shrink-0" data-command="brew install eddmann/tap/pinemeter" title="Copy to clipboard">
+                        <svg class="copy-icon w-5 h-5 text-slate-500 group-hover:text-slate-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        <svg class="check-icon w-5 h-5 text-green-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Alternative download -->
+            <p class="text-center mt-8 text-slate-400 dark:text-slate-500">
+                Or download directly from
+                <a href="https://github.com/PineIT-ca/pinemeter/releases" class="text-coral-500 hover:text-coral-600 underline underline-offset-4 transition-colors">GitHub Releases</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative px-6 py-16 border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <span class="text-2xl font-bold gradient-text">Pinemeter</span>
+            </div>
+
+            <div class="flex items-center justify-center gap-6 mb-8">
+                <a href="https://github.com/PineIT-ca/pinemeter" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <span class="text-slate-300 dark:text-slate-600">|</span>
+                <a href="https://github.com/PineIT-ca/pinemeter/releases" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+                    Releases
+                </a>
+                <span class="text-slate-300 dark:text-slate-600">|</span>
+                <a href="https://github.com/PineIT-ca/pinemeter/issues" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+                    Issues
+                </a>
+            </div>
+
+            <p class="text-slate-400 dark:text-slate-500 text-sm">
+                Built by <a href="https://eddmann.com" class="text-coral-500 hover:text-coral-600 transition-colors">Edd Mann</a>
+            </p>
+
+            <p class="text-slate-400 dark:text-slate-500 text-xs mt-4">
+                Pinemeter is not affiliated with or endorsed by Anthropic, OpenAI, or Google.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Copy to clipboard
+        document.querySelectorAll('.js-copy-command').forEach(button => {
+            button.addEventListener('click', () => {
+                const text = button.dataset.command;
+                navigator.clipboard.writeText(text);
+
+                const copyIcon = button.querySelector('.copy-icon');
+                const checkIcon = button.querySelector('.check-icon');
+                copyIcon.classList.add('hidden');
+                checkIcon.classList.remove('hidden');
+
+                setTimeout(() => {
+                    copyIcon.classList.remove('hidden');
+                    checkIcon.classList.add('hidden');
+                }, 2000);
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0-initial');
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.opacity-0-initial').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Theme toggle
+        (function() {
+            const STORAGE_KEY = 'theme-preference';
+
+            function getThemePreference() {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored) return stored;
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            function setTheme(theme) {
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+            }
+
+            setTheme(getThemePreference());
+
+            document.querySelector('.js-theme-toggle').addEventListener('click', () => {
+                const current = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                localStorage.setItem(STORAGE_KEY, next);
+                setTheme(next);
+            });
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (!localStorage.getItem(STORAGE_KEY)) {
+                    setTheme(e.matches ? 'dark' : 'light');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
