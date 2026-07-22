@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security or privacy report
+    url: https://github.com/PineIT-ca/pinemeter/security/advisories/new
+    about: Please report credential handling, privacy, or vulnerability concerns privately. See SECURITY.md if private reporting is unavailable.
+  - name: Usage and troubleshooting guide
+    url: https://github.com/PineIT-ca/pinemeter#troubleshooting-and-reset-paths
+    about: Check reset paths before opening a public bug report.
