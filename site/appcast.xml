@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Pinemeter</title>
+        <item>
+            <title>1.0.10</title>
+            <pubDate>Fri, 31 Jul 2026 12:29:56 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:version>10010</sparkle:version>
+            <sparkle:shortVersionString>1.0.10</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.0.10/Pinemeter.dmg" length="2471154" type="application/octet-stream" sparkle:edSignature="2NJ/xa57ZB9WUbg50+9mr/5FZ5OG2cRLSeKFafDY3/jYJvs+5IA54nNLsRMxmnLhGAjAR28un1eslTbTtDezCw=="/>
+        </item>
+    </channel>
+</rss>
