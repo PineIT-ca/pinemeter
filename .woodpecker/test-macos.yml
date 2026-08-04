@@ -1,0 +1,24 @@
+when:
+  - event: push
+    branch: main
+
+labels:
+  repo: PineIT-ca/pinemeter
+  platform: darwin/arm64
+  backend: local
+  hostname: macvm-pinemeter
+  trust: public-main-only
+
+steps:
+  xcode-tests:
+    image: /bin/bash
+    commands:
+      - set -euo pipefail
+      - test "$(uname -s)" = Darwin
+      - test "$(uname -m)" = arm64
+      - xcodebuild -version
+      - derived_data="$CI_WORKSPACE/.derived-data"
+      - xcodebuild build-for-testing -project Pinemeter.xcodeproj -scheme Pinemeter -configuration Debug -derivedDataPath "$derived_data" CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+      - test_bundle="$derived_data/Build/Products/Debug/Pinemeter.app/Contents/PlugIns/PinemeterTests.xctest"
+      - test -d "$test_bundle"
+      - sudo -n /usr/local/libexec/woodpecker/pinemeter-xctest-bridge

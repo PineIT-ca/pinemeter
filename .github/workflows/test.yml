@@ -1,0 +1,36 @@
+name: Test
+
+# Untrusted public PR lane. Runs only on ephemeral GitHub-hosted runners;
+# main-push testing lives in .woodpecker/test-macos.yml (see docs/ci.md).
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1.7.0
+        with:
+          xcode-version: latest-stable
+
+      - name: Run tests
+        run: |
+          xcodebuild test \
+            -project Pinemeter.xcodeproj \
+            -scheme Pinemeter \
+            -configuration Debug \
+            -skip-testing:PinemeterTests/MenuBarIconSnapshotTests \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
