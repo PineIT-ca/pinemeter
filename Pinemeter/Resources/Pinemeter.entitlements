@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  Pinemeter is intentionally NOT App-Sandboxed. Its core credential-import
+	  feature reads browser cookie databases (Chrome/Chromium/Firefox/Safari) that
+	  live outside any app container, so the sandbox silently hides those files and
+	  every import fails with noSessionKeyFound / noChatGPTSessionCookieFound. The
+	  app is Developer ID + hardened-runtime notarized and relies on user-granted
+	  Full Disk Access instead (see offersFullDiskAccessSettings in the import UX).
+	  Do NOT set ENABLE_APP_SANDBOX = YES in project.pbxproj or add
+	  com.apple.security.app-sandbox here without also replacing the file-based
+	  cookie import path.
+	-->
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)ca.pineit.Pinemeter</string>
+	</array>
+	<key>com.apple.security.app-sandbox</key>
+	<false/>
+	<key>com.apple.security.network.client</key>
+	<true/>
+</dict>
+</plist>
