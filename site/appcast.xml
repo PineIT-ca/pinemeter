@@ -1,0 +1,164 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Pinemeter</title>
+        <item>
+            <title>1.1.0-beta.14</title>
+            <pubDate>Thu, 27 Aug 2026 11:42:22 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010014</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.14</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.14/Pinemeter.dmg" length="6946305" type="application/octet-stream" sparkle:edSignature="YD4q3ffWx3tLl5/s0Aq9xTdX737x8uHc+MtFD4l5M7lV/s5E+B67QUnZCb5ATtkQVo0gUQmqZuzcSulj51FKAg=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.13</title>
+            <pubDate>Fri, 21 Aug 2026 14:12:39 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010013</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.13</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.13/Pinemeter.dmg" length="6705777" type="application/octet-stream" sparkle:edSignature="KLo2MdV7oJTNpi6lLTYbW+KmNMtJHYkhlUP+MGl+eKuETHZ1CD33pN+R8R94Za5hQVUKTYgNPaWW4x4CEnJsAQ=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.12</title>
+            <pubDate>Fri, 21 Aug 2026 11:31:25 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010012</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.12</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.12/Pinemeter.dmg" length="6686764" type="application/octet-stream" sparkle:edSignature="jT0tFmt8v8kgCNknUrk6f2ATujiihLXWDxe+vCfU1VaIGHW+lYHwySAYlJHxgxUfArFtVgmO57ow3qKMfz1PDw=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.11</title>
+            <pubDate>Fri, 21 Aug 2026 10:01:08 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010011</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.11</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.11/Pinemeter.dmg" length="6672994" type="application/octet-stream" sparkle:edSignature="9In863qy3kvBq31PdyH0y7Wp5xECUXEWAZmx8pJ0arQkJw6NWFtHV7pDZB+l0QSSW8jMbnj0GlXPSWR8Gio+Dg=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.10</title>
+            <pubDate>Thu, 20 Aug 2026 08:07:34 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010010</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.10</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.10/Pinemeter.dmg" length="6659949" type="application/octet-stream" sparkle:edSignature="9mkXrCgiXQ25TESqdIUFTXAnp/tPDU/qjXatvthaHig26knF2UF40yRVw2HZqcrMKgxhXVaI86WJjFy50jZtCA=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.9</title>
+            <pubDate>Wed, 19 Aug 2026 09:08:05 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010009</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.9</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.9/Pinemeter.dmg" length="6513969" type="application/octet-stream" sparkle:edSignature="wkJuIOYemOnx1Dd5JRS6819eITLBBvY0JUosfDa44QxA37j+bHaTJURsCW5BuqE8643tytgFG+oQza6NjxHQBg=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.8</title>
+            <pubDate>Tue, 18 Aug 2026 21:29:14 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010008</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.8/Pinemeter.dmg" length="6497904" type="application/octet-stream" sparkle:edSignature="Wp812FFPC5PvU0J9Q6rGHUUHrlk6EppYS//6lBAFDTJXKtZXhBW7K/TVXXNrcIbATzZB67BWW9RG/ERnvvcGCg=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.7</title>
+            <pubDate>Tue, 18 Aug 2026 14:39:07 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010007</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.7/Pinemeter.dmg" length="6498751" type="application/octet-stream" sparkle:edSignature="BYDTIUuH1LPpSj3fOGSYX/cBHW0DePSoTmDfU9Eeyk+EvmSIpbMWfSnhuNwBdtIS+qT67IBIX/LGe8D73FphCA=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.6</title>
+            <pubDate>Mon, 17 Aug 2026 19:59:22 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010006</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.6/Pinemeter.dmg" length="6480985" type="application/octet-stream" sparkle:edSignature="4bo2Cxq1XwukvMurUGNPKqUkt4pb3BAOY0E8QuNRkJREyK9MUE+FMDZRLODQmFWq2ueJOWy41bqzR8dychTOAQ=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.5</title>
+            <pubDate>Mon, 17 Aug 2026 08:35:03 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010005</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.5/Pinemeter.dmg" length="6428785" type="application/octet-stream" sparkle:edSignature="EVFXXbeanm4aXpWhWLamPFg2F17lDroxRqYPWpP1O8YL/+DZyhpPxF+nm3eiPEWXeL1hoP0F6HTrl5EOj5l2Bw=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.4</title>
+            <pubDate>Sun, 16 Aug 2026 20:17:23 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010004</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.4/Pinemeter.dmg" length="6403027" type="application/octet-stream" sparkle:edSignature="36S+/ytsHX9KxG90ut3w5qQwYbAtWjxsmN1qGmKY0I+4ESci/amKxnMKkAkVRl2F4ssGE28q8Y8JzsjWbumRAQ=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.3</title>
+            <pubDate>Sun, 16 Aug 2026 12:42:03 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010003</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.3/Pinemeter.dmg" length="6077956" type="application/octet-stream" sparkle:edSignature="QGoX/BWTyrQYpwcqcIgMpxCNMmv8XU0ptzs22tDID0Z9DiXGmo+NFc1UgtZ4YcUG8IyaguRRb7T1F+a2Tic9AQ=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.2</title>
+            <pubDate>Fri, 14 Aug 2026 20:28:14 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010002</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.2/Pinemeter.dmg" length="5758430" type="application/octet-stream" sparkle:edSignature="Wd3C0zD0WZ47GCgZgQckxsgAL/SQM+fEig8nLbZxBLUh4zjEwrzws1AhJM9m8l2xVtCcKevspPP5HArhstHCCA=="/>
+        </item>
+        <item>
+            <title>1.1.0-beta.1</title>
+            <pubDate>Fri, 14 Aug 2026 16:20:02 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>1010001</sparkle:version>
+            <sparkle:shortVersionString>1.1.0-beta.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.1.0-beta.1/Pinemeter.dmg" length="5628051" type="application/octet-stream" sparkle:edSignature="DFZwSjm/iz8YW7s3bu1AXvrwm6bQ9bxyeP5bX2BHyYhXPpIX4dcsfGNxUs3ipvIpBnuMZlsczthOKu1XFeIRAQ=="/>
+        </item>
+        <item>
+            <title>1.0.16</title>
+            <pubDate>Fri, 14 Aug 2026 15:21:32 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:version>10016</sparkle:version>
+            <sparkle:shortVersionString>1.0.16</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.0.16/Pinemeter.dmg" length="2517447" type="application/octet-stream" sparkle:edSignature="c6bhJiPrsejoTA1I2vNiSJ1A5dxV3Bi63D2igbLVKKGDyUNFKa24GSuytgRmpfw+hTwA3+hgUfuuFBN+oktAAw=="/>
+        </item>
+        <item>
+            <title>1.0.15</title>
+            <pubDate>Tue, 11 Aug 2026 10:45:05 -0700</pubDate>
+            <link>https://pineit-ca.github.io/pinemeter/</link>
+            <sparkle:version>10015</sparkle:version>
+            <sparkle:shortVersionString>1.0.15</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/PineIT-ca/pinemeter/releases/download/v1.0.15/Pinemeter.dmg" length="2510200" type="application/octet-stream" sparkle:edSignature="prtg6FdNTAr19rskqRoMjUxFzWaV2JY9DSJJ7jnKUU2zB+xHc4nSNHDIwmUeP6SxDIrvCoEr+Jn9RqzRq06GBA=="/>
+        </item>
+    </channel>
+</rss>
