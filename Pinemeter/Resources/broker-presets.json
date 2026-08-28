@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "presets": [
+    {
+      "id": "B0A5E000-0000-4000-A000-000000000005",
+      "name": "Balanced (No Opus)",
+      "detail": "Balanced routing without Opus: Fable, Sonnet, and GPT only.",
+      "symbol_name": "scalemass",
+      "rules": {
+        "roles": {
+          "architecture": [
+            "native/claude-fable-5",
+            "t3:*/claude-fable-5",
+            "t3/claude-fable-5",
+            { "id": "native/claude-sonnet-5", "effort": "xhigh" }
+          ],
+          "design": [
+            "native/claude-fable-5",
+            "t3:*/claude-fable-5",
+            "t3/claude-fable-5",
+            { "id": "native/claude-sonnet-5", "effort": "xhigh" }
+          ],
+          "planning": [
+            "native/claude-fable-5",
+            "t3:*/claude-fable-5",
+            "t3/claude-fable-5",
+            { "id": "native/claude-sonnet-5", "effort": "xhigh" }
+          ],
+          "research": [
+            "native/claude-fable-5",
+            "t3:*/claude-fable-5",
+            "t3/claude-fable-5",
+            { "id": "native/claude-sonnet-5", "effort": "xhigh" }
+          ],
+          "review": [
+            "native/claude-fable-5",
+            "t3:*/claude-fable-5",
+            "t3/claude-fable-5",
+            { "id": "native/claude-sonnet-5", "effort": "xhigh" }
+          ],
+          "execution": [
+            { "id": "t3/gpt-5.6-sol", "effort": "high" },
+            { "id": "codex/gpt-5.6-sol", "effort": "high" },
+            { "id": "native/claude-sonnet-5", "effort": "high" }
+          ],
+          "heavy": [
+            "native/claude-fable-5",
+            { "id": "native/claude-sonnet-5", "effort": "xhigh" }
+          ],
+          "standard": [
+            { "id": "native/claude-sonnet-5", "effort": "high" },
+            { "id": "t3/gpt-5.6-sol", "effort": "medium" },
+            { "id": "codex/gpt-5.6-sol", "effort": "medium" }
+          ]
+        },
+        "thresholds": {
+          "session_pct": 90,
+          "weekly_pct": 85,
+          "sonnet_weekly_pct": 90,
+          "fable_weekly_pct": 90,
+          "chatgpt_weekly_pct": 90,
+          "staleness_seconds": 1200
+        },
+        "callers": {
+          "claude-code": {
+            "routes": ["native", "codex", "t3"],
+            "deny_candidates": [],
+            "deny_instances": []
+          },
+          "codex": {
+            "routes": ["codex", "t3"],
+            "deny_candidates": [],
+            "deny_instances": []
+          }
+        },
+        "allow_forced_degraded": {},
+        "agent_model_aliases": {
+          "claude-fable-5": "fable",
+          "claude-opus-5": "opus",
+          "claude-sonnet-5": "sonnet",
+          "claude-haiku-4-5-20251001": "haiku"
+        },
+        "instance_by_model": {
+          "gpt-5.6-sol": "codex"
+        },
+        "default_instance": "claudeAgent"
+      }
+    }
+  ]
+}
