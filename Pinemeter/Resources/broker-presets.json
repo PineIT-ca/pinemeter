@@ -1,0 +1,1126 @@
+{
+  "agent_setup" : {
+    "changed_at" : "2026-09-03",
+    "revision" : 1,
+    "summary" : "Roles changed: explore and verification added; architecture folded into planning. Re-run the configure prompt so agent instructions pick roles from the broker's status tool."
+  },
+  "presets" : [
+    {
+      "detail" : "Reasoning tier for judgment, Codex for execution.",
+      "id" : "B0A5E000-0000-4000-A000-000000000001",
+      "name" : "Balanced",
+      "rules" : {
+        "agent_model_aliases" : {
+          "claude-fable-5" : "fable",
+          "claude-fable-5-1" : "fable",
+          "claude-haiku-4-5-20251001" : "haiku",
+          "claude-opus-5" : "opus",
+          "claude-sonnet-5" : "sonnet"
+        },
+        "allow_forced_degraded" : {
+
+        },
+        "callers" : {
+          "claude-code" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance" : "claudeAgent",
+        "instance_by_model" : {
+          "gpt-5.6-luna" : "codex",
+          "gpt-5.6-sol" : "codex",
+          "gpt-5.6-terra" : "codex"
+        },
+        "roles" : {
+          "design" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "execution" : [
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-sol"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "explore" : [
+            "auto/claude-haiku-4-5-20251001",
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "low",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "heavy" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/gpt-5.6-sol"
+            }
+          ],
+          "planning" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "research" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "review" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "standard" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-sol"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "verification" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ]
+        },
+        "thresholds" : {
+          "chatgpt_weekly_pct" : 90,
+          "fable_weekly_pct" : 80,
+          "session_pct" : 90,
+          "sonnet_weekly_pct" : 90,
+          "staleness_seconds" : 1200,
+          "weekly_pct" : 85
+        }
+      },
+      "symbol_name" : "scalemass"
+    },
+    {
+      "detail" : "Cheapest lane that can do the job; ceilings gate early.",
+      "id" : "B0A5E000-0000-4000-A000-000000000002",
+      "name" : "Conserve Quota",
+      "rules" : {
+        "agent_model_aliases" : {
+          "claude-fable-5" : "fable",
+          "claude-fable-5-1" : "fable",
+          "claude-haiku-4-5-20251001" : "haiku",
+          "claude-opus-5" : "opus",
+          "claude-sonnet-5" : "sonnet"
+        },
+        "allow_forced_degraded" : {
+
+        },
+        "callers" : {
+          "claude-code" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance" : "claudeAgent",
+        "instance_by_model" : {
+          "gpt-5.6-luna" : "codex",
+          "gpt-5.6-sol" : "codex",
+          "gpt-5.6-terra" : "codex"
+        },
+        "roles" : {
+          "design" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "execution" : [
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-sol"
+            },
+            "auto/claude-haiku-4-5-20251001",
+            {
+              "effort" : "medium",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "explore" : [
+            "auto/claude-haiku-4-5-20251001",
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-luna"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            }
+          ],
+          "heavy" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-sol"
+            }
+          ],
+          "planning" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "research" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "review" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "standard" : [
+            "auto/claude-haiku-4-5-20251001",
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-luna"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "verification" : [
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/claude-sonnet-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ]
+        },
+        "thresholds" : {
+          "chatgpt_weekly_pct" : 85,
+          "fable_weekly_pct" : 75,
+          "session_pct" : 75,
+          "sonnet_weekly_pct" : 80,
+          "staleness_seconds" : 1200,
+          "weekly_pct" : 70
+        }
+      },
+      "symbol_name" : "leaf"
+    },
+    {
+      "detail" : "Best available model per role; no silent downgrades.",
+      "id" : "B0A5E000-0000-4000-A000-000000000003",
+      "name" : "Max Quality",
+      "rules" : {
+        "agent_model_aliases" : {
+          "claude-fable-5" : "fable",
+          "claude-fable-5-1" : "fable",
+          "claude-haiku-4-5-20251001" : "haiku",
+          "claude-opus-5" : "opus",
+          "claude-sonnet-5" : "sonnet"
+        },
+        "allow_forced_degraded" : {
+          "design" : false,
+          "planning" : false,
+          "research" : false,
+          "review" : false
+        },
+        "callers" : {
+          "claude-code" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance" : "claudeAgent",
+        "instance_by_model" : {
+          "gpt-5.6-luna" : "codex",
+          "gpt-5.6-sol" : "codex",
+          "gpt-5.6-terra" : "codex"
+        },
+        "roles" : {
+          "design" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            }
+          ],
+          "execution" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-sol"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "explore" : [
+            {
+              "effort" : "medium",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "heavy" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/gpt-5.6-sol"
+            }
+          ],
+          "planning" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            }
+          ],
+          "research" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            }
+          ],
+          "review" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            }
+          ],
+          "standard" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-sol"
+            }
+          ],
+          "verification" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-sol"
+            }
+          ]
+        },
+        "thresholds" : {
+          "chatgpt_weekly_pct" : 97,
+          "fable_weekly_pct" : 97,
+          "session_pct" : 97,
+          "sonnet_weekly_pct" : 97,
+          "staleness_seconds" : 900,
+          "weekly_pct" : 95
+        }
+      },
+      "symbol_name" : "sparkles"
+    },
+    {
+      "detail" : "Keep Claude quota for judgment; write code on GPT.",
+      "id" : "B0A5E000-0000-4000-A000-000000000004",
+      "name" : "Offload Execution",
+      "rules" : {
+        "agent_model_aliases" : {
+          "claude-fable-5" : "fable",
+          "claude-fable-5-1" : "fable",
+          "claude-haiku-4-5-20251001" : "haiku",
+          "claude-opus-5" : "opus",
+          "claude-sonnet-5" : "sonnet"
+        },
+        "allow_forced_degraded" : {
+
+        },
+        "callers" : {
+          "claude-code" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance" : "claudeAgent",
+        "instance_by_model" : {
+          "gpt-5.6-luna" : "codex",
+          "gpt-5.6-sol" : "codex",
+          "gpt-5.6-terra" : "codex"
+        },
+        "roles" : {
+          "design" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "execution" : [
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-sol"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "explore" : [
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            "auto/claude-haiku-4-5-20251001",
+            {
+              "effort" : "low",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "heavy" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/gpt-5.6-sol"
+            }
+          ],
+          "planning" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "research" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "review" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "standard" : [
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-sol"
+            },
+            "auto/claude-haiku-4-5-20251001",
+            {
+              "effort" : "medium",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "verification" : [
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ]
+        },
+        "thresholds" : {
+          "chatgpt_weekly_pct" : 90,
+          "fable_weekly_pct" : 80,
+          "session_pct" : 90,
+          "sonnet_weekly_pct" : 90,
+          "staleness_seconds" : 1200,
+          "weekly_pct" : 85
+        }
+      },
+      "symbol_name" : "arrow.left.arrow.right"
+    },
+    {
+      "detail" : "Balanced routing without Opus: Fable, Sonnet, GPT, plus Haiku for explore and verification.",
+      "id" : "B0A5E000-0000-4000-A000-000000000005",
+      "name" : "Balanced (No Opus)",
+      "rules" : {
+        "agent_model_aliases" : {
+          "claude-fable-5" : "fable",
+          "claude-fable-5-1" : "fable",
+          "claude-haiku-4-5-20251001" : "haiku",
+          "claude-opus-5" : "opus",
+          "claude-sonnet-5" : "sonnet"
+        },
+        "allow_forced_degraded" : {
+
+        },
+        "callers" : {
+          "claude-code" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance" : "claudeAgent",
+        "instance_by_model" : {
+          "gpt-5.6-sol" : "codex",
+          "gpt-5.6-terra" : "codex"
+        },
+        "roles" : {
+          "design" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "execution" : [
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-sol"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "explore" : [
+            "auto/claude-haiku-4-5-20251001",
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "low",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "heavy" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/gpt-5.6-sol"
+            }
+          ],
+          "planning" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "research" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "review" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "standard" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-sol"
+            }
+          ],
+          "verification" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ]
+        },
+        "thresholds" : {
+          "chatgpt_weekly_pct" : 90,
+          "fable_weekly_pct" : 80,
+          "session_pct" : 90,
+          "sonnet_weekly_pct" : 90,
+          "staleness_seconds" : 1200,
+          "weekly_pct" : 85
+        }
+      },
+      "symbol_name" : "scalemass"
+    },
+    {
+      "detail" : "Claude Max only. No Codex lanes; a Codex caller needs a T3 Claude lane.",
+      "id" : "B0A5E000-0000-4000-A000-000000000006",
+      "name" : "Claude Only",
+      "rules" : {
+        "agent_model_aliases" : {
+          "claude-fable-5" : "fable",
+          "claude-fable-5-1" : "fable",
+          "claude-haiku-4-5-20251001" : "haiku",
+          "claude-opus-5" : "opus",
+          "claude-sonnet-5" : "sonnet"
+        },
+        "allow_forced_degraded" : {
+
+        },
+        "callers" : {
+          "claude-code" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance" : "claudeAgent",
+        "instance_by_model" : {
+
+        },
+        "roles" : {
+          "design" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "execution" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "explore" : [
+            "auto/claude-haiku-4-5-20251001",
+            {
+              "effort" : "low",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "heavy" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "planning" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "research" : [
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "review" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "standard" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "verification" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ]
+        },
+        "thresholds" : {
+          "chatgpt_weekly_pct" : 90,
+          "fable_weekly_pct" : 80,
+          "session_pct" : 90,
+          "sonnet_weekly_pct" : 90,
+          "staleness_seconds" : 1200,
+          "weekly_pct" : 85
+        }
+      },
+      "symbol_name" : "checkmark.seal"
+    },
+    {
+      "detail" : "Balanced without Fable: Opus leads judgment, Codex executes.",
+      "id" : "B0A5E000-0000-4000-A000-000000000007",
+      "name" : "Balanced (No Fable)",
+      "rules" : {
+        "agent_model_aliases" : {
+          "claude-fable-5" : "fable",
+          "claude-fable-5-1" : "fable",
+          "claude-haiku-4-5-20251001" : "haiku",
+          "claude-opus-5" : "opus",
+          "claude-sonnet-5" : "sonnet"
+        },
+        "allow_forced_degraded" : {
+
+        },
+        "callers" : {
+          "claude-code" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex" : {
+            "deny_candidates" : [
+
+            ],
+            "deny_instances" : [
+
+            ],
+            "routes" : [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance" : "claudeAgent",
+        "instance_by_model" : {
+          "gpt-5.6-sol" : "codex",
+          "gpt-5.6-terra" : "codex"
+        },
+        "roles" : {
+          "design" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "execution" : [
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-sol"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "explore" : [
+            "auto/claude-haiku-4-5-20251001",
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "low",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "heavy" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/gpt-5.6-sol"
+            }
+          ],
+          "planning" : [
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "xhigh",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "research" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "review" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-opus-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            }
+          ],
+          "standard" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            {
+              "effort" : "medium",
+              "id" : "auto/gpt-5.6-sol"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ],
+          "verification" : [
+            {
+              "effort" : "high",
+              "id" : "auto/claude-sonnet-5"
+            },
+            {
+              "effort" : "high",
+              "id" : "auto/gpt-5.6-terra"
+            },
+            "auto/claude-haiku-4-5-20251001"
+          ]
+        },
+        "thresholds" : {
+          "chatgpt_weekly_pct" : 90,
+          "fable_weekly_pct" : 80,
+          "session_pct" : 90,
+          "sonnet_weekly_pct" : 90,
+          "staleness_seconds" : 1200,
+          "weekly_pct" : 85
+        }
+      },
+      "symbol_name" : "scalemass"
+    }
+  ],
+  "schema_version" : 1
+}
