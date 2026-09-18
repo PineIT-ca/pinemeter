@@ -1,0 +1,98 @@
+name: Bug report
+description: Report reproducible Pinemeter behavior with sanitized diagnostics
+title: "Bug: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Do not paste Claude session keys, ChatGPT cookies, Gemini API keys, Cookie headers, Authorization headers, browser cookie database files, or screenshots that expose account identifiers.
+
+        If this involves credential leakage, privacy, or a vulnerability, stop here and use the private path in SECURITY.md instead of opening a public issue.
+  - type: input
+    id: version
+    attributes:
+      label: Pinemeter version or commit
+      description: Use the release version, build number, or commit SHA you tested.
+      placeholder: "v1.2.3 or abc1234"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac architecture
+      placeholder: "macOS 14.6, Apple Silicon"
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Affected area
+      options:
+        - Claude monitoring
+        - ChatGPT optional visibility
+        - Gemini optional visibility
+        - Browser import
+        - Menu bar or notifications
+        - Settings or setup wizard
+        - Usage JSON export
+        - Build or release artifact
+        - Other app-wide behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: setup-path
+    attributes:
+      label: Setup path
+      description: Select the path most relevant to the report.
+      options:
+        - Browser import
+        - Manual Claude session entry
+        - Gemini API key entry
+        - Provider not configured
+        - Existing saved configuration
+        - Building from source
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the smallest sequence that triggers the behavior.
+      placeholder: |
+        1. Open Pinemeter Settings
+        2. Choose ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: "What should have happened?"
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include exact sanitized app status/error text when available.
+      placeholder: "What happened instead?"
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics
+      description: Paste only sanitized logs, copyable error text, or usage JSON shape. Redact account IDs and never include secrets.
+      render: text
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety checklist
+      options:
+        - label: I removed Claude session keys, ChatGPT cookies, Gemini API keys, Cookie headers, Authorization headers, and account-identifying screenshots.
+          required: true
+        - label: This is not a credential leak, privacy concern, or vulnerability report that should use SECURITY.md.
+          required: true
