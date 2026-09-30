@@ -1,0 +1,63 @@
+name: Feature request
+description: Suggest a focused Pinemeter improvement or provider workflow
+title: "Feature: "
+labels: [enhancement, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement. Please focus on the user problem and avoid sharing private account details, provider credentials, cookies, tokens, or headers.
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What are you trying to do, and what gets in the way today?
+      placeholder: "When I ..., I need ..., but currently ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Claude monitoring
+        - ChatGPT optional visibility
+        - Gemini optional visibility
+        - Browser import
+        - Menu bar or notifications
+        - Settings or setup wizard
+        - Usage JSON export
+        - Documentation or contributor experience
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the smallest useful change.
+      placeholder: "Pinemeter should ..."
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What workaround or alternate design have you tried?
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy and credential impact
+      description: Note whether this requires reading, storing, displaying, logging, or exporting provider credential/session material.
+      placeholder: "No new credential material is required, or this would require ..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched for existing issues or requests before opening this.
+          required: true
+        - label: I did not include real Claude session keys, ChatGPT cookies, Gemini API keys, Cookie headers, Authorization headers, or account-identifying screenshots.
+          required: true
