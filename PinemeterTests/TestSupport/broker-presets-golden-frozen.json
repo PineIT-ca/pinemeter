@@ -1,0 +1,3922 @@
+{
+  "agent_setup": {
+    "changed_at": "2026-09-28",
+    "revision": 2,
+    "summary": "Roles changed: legal-review added with a quality-gated judgment chain. Re-run the configure prompt so agent instructions pick roles from the broker's status tool."
+  },
+  "attribution": [
+    "Data: Artificial Analysis (https://artificialanalysis.ai/)"
+  ],
+  "presets": [
+    {
+      "detail": "Reasoning tier for judgment, Codex for execution.",
+      "id": "B0A5E000-0000-4000-A000-000000000001",
+      "name": "Balanced",
+      "rules": {
+        "agent_model_aliases": {
+          "claude-fable-5": "fable",
+          "claude-fable-5-1": "fable",
+          "claude-haiku-4-5-20251001": "haiku",
+          "claude-opus-5": "opus",
+          "claude-opus-5-5": "opus",
+          "claude-sonnet-5": "sonnet",
+          "claude-sonnet-5-5": "sonnet"
+        },
+        "allow_forced_degraded": {},
+        "callers": {
+          "claude-code": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance": "claudeAgent",
+        "instance_by_model": {
+          "gpt-5.6-luna": "codex",
+          "gpt-5.6-sol": "codex",
+          "gpt-5.6-terra": "codex",
+          "gpt-6-astra": "codex",
+          "gpt-6-luna": "codex",
+          "gpt-6-sol": "codex",
+          "gpt-6.1-sol": "codex"
+        },
+        "models": {
+          "claude-fable-5": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-fable-5-1": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-haiku-4-5-20251001": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": []
+            }
+          },
+          "claude-haiku-5-5": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5-5": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "gpt-5.6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-terra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-astra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6.1-sol": {
+            "effort": {
+              "default_label": "Default (low)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          }
+        },
+        "roles": {
+          "design": [
+            {
+              "effort": "medium",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "execution": [
+            {
+              "effort": "high",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "t3:pi/default"
+          ],
+          "explore": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-luna"
+            },
+            {
+              "effort": "low",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "heavy": [
+            {
+              "effort": "high",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            }
+          ],
+          "legal-review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "planning": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "research": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "standard": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "verification": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ]
+        },
+        "scoring": {
+          "latency": {
+            "claude-fable-5-1": {
+              "_default": 13,
+              "xhigh": 57
+            },
+            "claude-opus-5-5": {
+              "high": 28,
+              "medium": 17,
+              "xhigh": 65
+            },
+            "claude-sonnet-5-5": {
+              "high": 12,
+              "low": 6,
+              "xhigh": 19
+            },
+            "gpt-6-astra": {
+              "high": 36,
+              "medium": 15,
+              "xhigh": 96
+            },
+            "gpt-6.1-sol": {
+              "high": 32,
+              "medium": 13,
+              "xhigh": 73
+            }
+          },
+          "roles": {
+            "design": {
+              "floor": 468,
+              "latency_limit": 96,
+              "quality": {
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "medium": 512,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "execution": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "xhigh": 510
+                },
+                "t3:pi/default": {
+                  "_default": 0
+                }
+              }
+            },
+            "explore": {
+              "floor": 299,
+              "latency_limit": 6,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "low": 359
+                },
+                "gpt-6-luna": {
+                  "medium": 299
+                }
+              }
+            },
+            "heavy": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "xhigh": 510
+                }
+              }
+            },
+            "legal-review": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "planning": {
+              "floor": 468,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "research": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "review": {
+              "floor": 468,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "standard": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "verification": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            }
+          }
+        },
+        "thresholds": {
+          "chatgpt_weekly_pct": 90,
+          "fable_weekly_pct": 80,
+          "prefer_expiring_quota": true,
+          "session_pct": 90,
+          "sonnet_weekly_pct": 90,
+          "staleness_seconds": 1200,
+          "weekly_pct": 85
+        }
+      },
+      "symbol_name": "scalemass"
+    },
+    {
+      "detail": "Cheapest lane that can do the job; ceilings gate early.",
+      "id": "B0A5E000-0000-4000-A000-000000000002",
+      "name": "Conserve Quota",
+      "rules": {
+        "agent_model_aliases": {
+          "claude-fable-5": "fable",
+          "claude-fable-5-1": "fable",
+          "claude-haiku-4-5-20251001": "haiku",
+          "claude-opus-5": "opus",
+          "claude-opus-5-5": "opus",
+          "claude-sonnet-5": "sonnet",
+          "claude-sonnet-5-5": "sonnet"
+        },
+        "allow_forced_degraded": {},
+        "callers": {
+          "claude-code": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance": "claudeAgent",
+        "instance_by_model": {
+          "gpt-5.6-luna": "codex",
+          "gpt-5.6-sol": "codex",
+          "gpt-5.6-terra": "codex",
+          "gpt-6-astra": "codex",
+          "gpt-6-luna": "codex",
+          "gpt-6-sol": "codex",
+          "gpt-6.1-sol": "codex"
+        },
+        "models": {
+          "claude-fable-5": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-fable-5-1": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-haiku-4-5-20251001": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": []
+            }
+          },
+          "claude-haiku-5-5": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5-5": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "gpt-5.6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-terra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-astra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6.1-sol": {
+            "effort": {
+              "default_label": "Default (low)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          }
+        },
+        "roles": {
+          "design": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "execution": [
+            {
+              "effort": "low",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "t3:pi/default"
+          ],
+          "explore": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-luna"
+            },
+            {
+              "effort": "low",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "heavy": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "legal-review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "planning": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "research": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "standard": [
+            {
+              "effort": "high",
+              "id": "auto/gpt-6-luna"
+            },
+            {
+              "effort": "low",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "verification": [
+            {
+              "effort": "low",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ]
+        },
+        "scoring": {
+          "latency": {
+            "claude-fable-5-1": {
+              "_default": 13,
+              "xhigh": 57
+            },
+            "claude-opus-5-5": {
+              "high": 28,
+              "medium": 17,
+              "xhigh": 65
+            },
+            "claude-sonnet-5-5": {
+              "high": 12,
+              "low": 6,
+              "medium": 6,
+              "xhigh": 19
+            },
+            "gpt-6-astra": {
+              "high": 36,
+              "medium": 15,
+              "xhigh": 96
+            },
+            "gpt-6-luna": {
+              "high": 14,
+              "xhigh": 31
+            },
+            "gpt-6.1-sol": {
+              "high": 32,
+              "low": 11,
+              "medium": 13,
+              "xhigh": 73
+            }
+          },
+          "roles": {
+            "design": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "medium": 512,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "execution": {
+              "floor": 408,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "medium": 408,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "low": 421,
+                  "medium": 478,
+                  "xhigh": 510
+                },
+                "t3:pi/default": {
+                  "_default": 0
+                }
+              }
+            },
+            "explore": {
+              "floor": 299,
+              "latency_limit": 6,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "low": 359
+                },
+                "gpt-6-luna": {
+                  "medium": 299
+                }
+              }
+            },
+            "heavy": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "legal-review": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "planning": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "medium": 512,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "research": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "medium": 512,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "review": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "medium": 512,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "standard": {
+              "floor": 329,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "medium": 408,
+                  "xhigh": 519
+                },
+                "gpt-6-luna": {
+                  "high": 329,
+                  "xhigh": 346
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "low": 421,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "verification": {
+              "floor": 408,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "medium": 408,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "low": 421,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            }
+          }
+        },
+        "thresholds": {
+          "chatgpt_weekly_pct": 85,
+          "fable_weekly_pct": 75,
+          "prefer_expiring_quota": true,
+          "session_pct": 75,
+          "sonnet_weekly_pct": 80,
+          "staleness_seconds": 1200,
+          "weekly_pct": 70
+        }
+      },
+      "symbol_name": "leaf"
+    },
+    {
+      "detail": "Best available model per role; no silent downgrades.",
+      "id": "B0A5E000-0000-4000-A000-000000000003",
+      "name": "Max Quality",
+      "rules": {
+        "agent_model_aliases": {
+          "claude-fable-5": "fable",
+          "claude-fable-5-1": "fable",
+          "claude-haiku-4-5-20251001": "haiku",
+          "claude-opus-5": "opus",
+          "claude-opus-5-5": "opus",
+          "claude-sonnet-5": "sonnet",
+          "claude-sonnet-5-5": "sonnet"
+        },
+        "allow_forced_degraded": {
+          "design": false,
+          "planning": false,
+          "research": false,
+          "review": true
+        },
+        "callers": {
+          "claude-code": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance": "claudeAgent",
+        "instance_by_model": {
+          "gpt-5.6-luna": "codex",
+          "gpt-5.6-sol": "codex",
+          "gpt-5.6-terra": "codex",
+          "gpt-6-astra": "codex",
+          "gpt-6-luna": "codex",
+          "gpt-6-sol": "codex",
+          "gpt-6.1-sol": "codex"
+        },
+        "models": {
+          "claude-fable-5": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-fable-5-1": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-haiku-4-5-20251001": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": []
+            }
+          },
+          "claude-haiku-5-5": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5-5": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "gpt-5.6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-terra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-astra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6.1-sol": {
+            "effort": {
+              "default_label": "Default (low)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          }
+        },
+        "roles": {
+          "design": [
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "execution": [
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "explore": [
+            {
+              "effort": "medium",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "high",
+              "id": "auto/gpt-6-luna"
+            }
+          ],
+          "heavy": [
+            {
+              "effort": "high",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            }
+          ],
+          "legal-review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "planning": [
+            {
+              "effort": "high",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "research": [
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "review": [
+            {
+              "effort": "high",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "standard": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "verification": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ]
+        },
+        "scoring": {
+          "latency": {
+            "claude-fable-5-1": {
+              "_default": 13,
+              "xhigh": 57
+            },
+            "claude-opus-5-5": {
+              "high": 28,
+              "xhigh": 65
+            },
+            "claude-sonnet-5-5": {
+              "high": 12,
+              "medium": 6,
+              "xhigh": 19
+            },
+            "gpt-6-astra": {
+              "high": 36,
+              "medium": 15,
+              "xhigh": 96
+            },
+            "gpt-6-luna": {
+              "high": 14
+            },
+            "gpt-6.1-sol": {
+              "high": 32,
+              "medium": 13,
+              "xhigh": 73
+            }
+          },
+          "roles": {
+            "design": {
+              "floor": 478,
+              "latency_limit": 73,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "execution": {
+              "floor": 478,
+              "latency_limit": 73,
+              "quality": {
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "explore": {
+              "floor": 329,
+              "latency_limit": 14,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "medium": 408
+                },
+                "gpt-6-luna": {
+                  "high": 329
+                }
+              }
+            },
+            "heavy": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "xhigh": 510
+                }
+              }
+            },
+            "legal-review": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "planning": {
+              "floor": 509,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "xhigh": 524
+                }
+              }
+            },
+            "research": {
+              "floor": 478,
+              "latency_limit": 73,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "review": {
+              "floor": 509,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "xhigh": 524
+                }
+              }
+            },
+            "standard": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "verification": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            }
+          }
+        },
+        "thresholds": {
+          "chatgpt_weekly_pct": 90,
+          "fable_weekly_pct": 97,
+          "prefer_expiring_quota": true,
+          "session_pct": 97,
+          "sonnet_weekly_pct": 97,
+          "staleness_seconds": 900,
+          "weekly_pct": 95
+        }
+      },
+      "symbol_name": "sparkles"
+    },
+    {
+      "detail": "Keep Claude quota for judgment; write code on GPT.",
+      "id": "B0A5E000-0000-4000-A000-000000000004",
+      "name": "Offload Execution",
+      "rules": {
+        "agent_model_aliases": {
+          "claude-fable-5": "fable",
+          "claude-fable-5-1": "fable",
+          "claude-haiku-4-5-20251001": "haiku",
+          "claude-opus-5": "opus",
+          "claude-opus-5-5": "opus",
+          "claude-sonnet-5": "sonnet",
+          "claude-sonnet-5-5": "sonnet"
+        },
+        "allow_forced_degraded": {},
+        "callers": {
+          "claude-code": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance": "claudeAgent",
+        "instance_by_model": {
+          "gpt-5.6-luna": "codex",
+          "gpt-5.6-sol": "codex",
+          "gpt-5.6-terra": "codex",
+          "gpt-6-astra": "codex",
+          "gpt-6-luna": "codex",
+          "gpt-6-sol": "codex",
+          "gpt-6.1-sol": "codex"
+        },
+        "models": {
+          "claude-fable-5": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-fable-5-1": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-haiku-4-5-20251001": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": []
+            }
+          },
+          "claude-haiku-5-5": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5-5": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "gpt-5.6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-terra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-astra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6.1-sol": {
+            "effort": {
+              "default_label": "Default (low)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          }
+        },
+        "roles": {
+          "design": [
+            {
+              "effort": "medium",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "execution": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "t3:pi/default"
+          ],
+          "explore": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-luna"
+            },
+            {
+              "effort": "low",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "heavy": [
+            {
+              "effort": "high",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            }
+          ],
+          "legal-review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "planning": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "research": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "standard": [
+            {
+              "effort": "low",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "verification": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ]
+        },
+        "scoring": {
+          "latency": {
+            "claude-fable-5-1": {
+              "_default": 13,
+              "xhigh": 57
+            },
+            "claude-opus-5-5": {
+              "high": 28,
+              "medium": 17,
+              "xhigh": 65
+            },
+            "claude-sonnet-5-5": {
+              "high": 12,
+              "low": 6,
+              "medium": 6,
+              "xhigh": 19
+            },
+            "gpt-6-astra": {
+              "high": 36,
+              "medium": 15,
+              "xhigh": 96
+            },
+            "gpt-6.1-sol": {
+              "high": 32,
+              "low": 11,
+              "medium": 13,
+              "xhigh": 73
+            }
+          },
+          "roles": {
+            "design": {
+              "floor": 468,
+              "latency_limit": 96,
+              "quality": {
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "medium": 512,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "execution": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                },
+                "t3:pi/default": {
+                  "_default": 0
+                }
+              }
+            },
+            "explore": {
+              "floor": 299,
+              "latency_limit": 6,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "low": 359
+                },
+                "gpt-6-luna": {
+                  "medium": 299
+                }
+              }
+            },
+            "heavy": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "xhigh": 510
+                }
+              }
+            },
+            "legal-review": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "planning": {
+              "floor": 468,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "research": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "review": {
+              "floor": 468,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "standard": {
+              "floor": 408,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "medium": 408,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "low": 421,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "verification": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            }
+          }
+        },
+        "thresholds": {
+          "chatgpt_weekly_pct": 90,
+          "fable_weekly_pct": 80,
+          "prefer_expiring_quota": true,
+          "session_pct": 90,
+          "sonnet_weekly_pct": 90,
+          "staleness_seconds": 1200,
+          "weekly_pct": 85
+        }
+      },
+      "symbol_name": "arrow.left.arrow.right"
+    },
+    {
+      "detail": "Balanced routing without Opus: Fable, Sonnet, GPT, plus Haiku for explore and verification.",
+      "id": "B0A5E000-0000-4000-A000-000000000005",
+      "name": "Balanced (No Opus)",
+      "rules": {
+        "agent_model_aliases": {
+          "claude-fable-5": "fable",
+          "claude-fable-5-1": "fable",
+          "claude-haiku-4-5-20251001": "haiku",
+          "claude-opus-5": "opus",
+          "claude-opus-5-5": "opus",
+          "claude-sonnet-5": "sonnet",
+          "claude-sonnet-5-5": "sonnet"
+        },
+        "allow_forced_degraded": {},
+        "callers": {
+          "claude-code": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance": "claudeAgent",
+        "instance_by_model": {
+          "gpt-5.6-sol": "codex",
+          "gpt-5.6-terra": "codex",
+          "gpt-6-astra": "codex",
+          "gpt-6-luna": "codex",
+          "gpt-6-sol": "codex",
+          "gpt-6.1-sol": "codex"
+        },
+        "models": {
+          "claude-fable-5": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-fable-5-1": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-haiku-4-5-20251001": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": []
+            }
+          },
+          "claude-haiku-5-5": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5-5": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "gpt-5.6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-terra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-astra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6.1-sol": {
+            "effort": {
+              "default_label": "Default (low)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          }
+        },
+        "roles": {
+          "design": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "execution": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "t3:pi/default"
+          ],
+          "explore": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-luna"
+            },
+            {
+              "effort": "low",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "heavy": [
+            {
+              "effort": "high",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            }
+          ],
+          "legal-review": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "planning": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "research": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "review": [
+            "auto/claude-fable-5-1",
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "standard": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "low",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "verification": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ]
+        },
+        "scoring": {
+          "latency": {
+            "claude-fable-5-1": {
+              "_default": 13,
+              "xhigh": 57
+            },
+            "claude-sonnet-5-5": {
+              "high": 12,
+              "low": 6,
+              "xhigh": 19
+            },
+            "gpt-6-astra": {
+              "high": 36,
+              "medium": 15,
+              "xhigh": 96
+            },
+            "gpt-6.1-sol": {
+              "high": 32,
+              "low": 11,
+              "medium": 13,
+              "xhigh": 73
+            }
+          },
+          "roles": {
+            "design": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "execution": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                },
+                "t3:pi/default": {
+                  "_default": 0
+                }
+              }
+            },
+            "explore": {
+              "floor": 299,
+              "latency_limit": 6,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "low": 359
+                },
+                "gpt-6-luna": {
+                  "medium": 299
+                }
+              }
+            },
+            "heavy": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "xhigh": 510
+                }
+              }
+            },
+            "legal-review": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "planning": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "research": {
+              "floor": 478,
+              "latency_limit": 73,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "review": {
+              "floor": 468,
+              "latency_limit": 96,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "standard": {
+              "floor": 421,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "low": 421,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "verification": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            }
+          }
+        },
+        "thresholds": {
+          "chatgpt_weekly_pct": 90,
+          "fable_weekly_pct": 80,
+          "session_pct": 90,
+          "sonnet_weekly_pct": 90,
+          "staleness_seconds": 1200,
+          "weekly_pct": 85
+        }
+      },
+      "symbol_name": "scalemass"
+    },
+    {
+      "detail": "Claude Max only. No Codex lanes; a Codex caller needs a T3 Claude lane.",
+      "id": "B0A5E000-0000-4000-A000-000000000006",
+      "name": "Claude Only",
+      "rules": {
+        "agent_model_aliases": {
+          "claude-fable-5": "fable",
+          "claude-fable-5-1": "fable",
+          "claude-haiku-4-5-20251001": "haiku",
+          "claude-opus-5": "opus",
+          "claude-opus-5-5": "opus",
+          "claude-sonnet-5": "sonnet",
+          "claude-sonnet-5-5": "sonnet"
+        },
+        "allow_forced_degraded": {},
+        "callers": {
+          "claude-code": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance": "claudeAgent",
+        "instance_by_model": {
+          "gpt-6-astra": "codex"
+        },
+        "models": {
+          "claude-fable-5": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-fable-5-1": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-haiku-4-5-20251001": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": []
+            }
+          },
+          "claude-haiku-5-5": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5-5": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "gpt-6-astra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          }
+        },
+        "roles": {
+          "design": [
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "execution": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "explore": [
+            {
+              "effort": "low",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "heavy": [
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            }
+          ],
+          "legal-review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "planning": [
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "auto/claude-fable-5-1"
+          ],
+          "research": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            "auto/claude-fable-5-1",
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "standard": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "verification": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ]
+        },
+        "scoring": {
+          "latency": {
+            "claude-fable-5-1": {
+              "_default": 13,
+              "xhigh": 57
+            },
+            "claude-opus-5-5": {
+              "high": 28,
+              "xhigh": 65
+            },
+            "claude-sonnet-5-5": {
+              "high": 12,
+              "low": 6,
+              "xhigh": 19
+            }
+          },
+          "roles": {
+            "design": {
+              "floor": 512,
+              "latency_limit": 65,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                }
+              }
+            },
+            "execution": {
+              "floor": 468,
+              "latency_limit": 19,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                }
+              }
+            },
+            "explore": {
+              "floor": 359,
+              "latency_limit": 6,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "low": 359
+                }
+              }
+            },
+            "heavy": {
+              "floor": 519,
+              "latency_limit": 65,
+              "quality": {
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                }
+              }
+            },
+            "legal-review": {
+              "floor": 512,
+              "latency_limit": 65,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                }
+              }
+            },
+            "planning": {
+              "floor": 512,
+              "latency_limit": 65,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                }
+              }
+            },
+            "research": {
+              "floor": 468,
+              "latency_limit": 65,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                }
+              }
+            },
+            "review": {
+              "floor": 468,
+              "latency_limit": 65,
+              "quality": {
+                "claude-fable-5-1": {
+                  "_default": 512,
+                  "xhigh": 532
+                },
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                }
+              }
+            },
+            "standard": {
+              "floor": 468,
+              "latency_limit": 19,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                }
+              }
+            },
+            "verification": {
+              "floor": 468,
+              "latency_limit": 19,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                }
+              }
+            }
+          }
+        },
+        "thresholds": {
+          "chatgpt_weekly_pct": 90,
+          "fable_weekly_pct": 80,
+          "session_pct": 90,
+          "sonnet_weekly_pct": 90,
+          "staleness_seconds": 1200,
+          "weekly_pct": 85
+        }
+      },
+      "symbol_name": "checkmark.seal"
+    },
+    {
+      "detail": "Balanced without Fable: Opus leads judgment, Codex executes.",
+      "id": "B0A5E000-0000-4000-A000-000000000007",
+      "name": "Balanced (No Fable)",
+      "rules": {
+        "agent_model_aliases": {
+          "claude-fable-5": "fable",
+          "claude-fable-5-1": "fable",
+          "claude-haiku-4-5-20251001": "haiku",
+          "claude-opus-5": "opus",
+          "claude-opus-5-5": "opus",
+          "claude-sonnet-5": "sonnet",
+          "claude-sonnet-5-5": "sonnet"
+        },
+        "allow_forced_degraded": {},
+        "callers": {
+          "claude-code": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "native",
+              "codex",
+              "t3"
+            ]
+          },
+          "codex": {
+            "deny_candidates": [],
+            "deny_instances": [],
+            "routes": [
+              "codex",
+              "t3"
+            ]
+          }
+        },
+        "default_instance": "claudeAgent",
+        "instance_by_model": {
+          "gpt-5.6-sol": "codex",
+          "gpt-5.6-terra": "codex",
+          "gpt-6-astra": "codex",
+          "gpt-6-luna": "codex",
+          "gpt-6-sol": "codex",
+          "gpt-6.1-sol": "codex"
+        },
+        "models": {
+          "claude-fable-5": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-fable-5-1": {
+            "effort": {
+              "default_label": "Adaptive (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-haiku-4-5-20251001": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": []
+            }
+          },
+          "claude-haiku-5-5": {
+            "effort": {
+              "default_label": "Provider default",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-opus-5-5": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "claude-sonnet-5-5": {
+            "effort": {
+              "default_label": "Default (high)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "gpt-5.6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-5.6-terra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-astra": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-luna": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6-sol": {
+            "effort": {
+              "default_label": "Default (medium)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          },
+          "gpt-6.1-sol": {
+            "effort": {
+              "default_label": "Default (low)",
+              "levels": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            },
+            "quota": {
+              "label_contains": "codex weekly",
+              "provider": "chatgpt"
+            }
+          }
+        },
+        "roles": {
+          "design": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "execution": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            "t3:pi/default"
+          ],
+          "explore": [
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-luna"
+            },
+            {
+              "effort": "low",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "heavy": [
+            {
+              "effort": "high",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            }
+          ],
+          "legal-review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            }
+          ],
+          "planning": [
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "xhigh",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "research": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "review": [
+            {
+              "effort": "high",
+              "id": "auto/claude-opus-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6-astra"
+            },
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            }
+          ],
+          "standard": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "low",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ],
+          "verification": [
+            {
+              "effort": "high",
+              "id": "auto/claude-sonnet-5-5"
+            },
+            {
+              "effort": "medium",
+              "id": "auto/gpt-6.1-sol"
+            }
+          ]
+        },
+        "scoring": {
+          "latency": {
+            "claude-opus-5-5": {
+              "high": 28,
+              "xhigh": 65
+            },
+            "claude-sonnet-5-5": {
+              "high": 12,
+              "low": 6,
+              "xhigh": 19
+            },
+            "gpt-6-astra": {
+              "high": 36,
+              "medium": 15,
+              "xhigh": 96
+            },
+            "gpt-6.1-sol": {
+              "high": 32,
+              "low": 11,
+              "medium": 13,
+              "xhigh": 73
+            }
+          },
+          "roles": {
+            "design": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "execution": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                },
+                "t3:pi/default": {
+                  "_default": 0
+                }
+              }
+            },
+            "explore": {
+              "floor": 299,
+              "latency_limit": 6,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "low": 359
+                },
+                "gpt-6-luna": {
+                  "medium": 299
+                }
+              }
+            },
+            "heavy": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "xhigh": 510
+                }
+              }
+            },
+            "legal-review": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "planning": {
+              "floor": 496,
+              "latency_limit": 96,
+              "quality": {
+                "claude-opus-5-5": {
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "research": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "review": {
+              "floor": 468,
+              "latency_limit": 96,
+              "quality": {
+                "claude-opus-5-5": {
+                  "high": 536,
+                  "xhigh": 560
+                },
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6-astra": {
+                  "high": 509,
+                  "medium": 496,
+                  "xhigh": 524
+                }
+              }
+            },
+            "standard": {
+              "floor": 421,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "low": 421,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            },
+            "verification": {
+              "floor": 468,
+              "latency_limit": 73,
+              "quality": {
+                "claude-sonnet-5-5": {
+                  "high": 468,
+                  "xhigh": 519
+                },
+                "gpt-6.1-sol": {
+                  "high": 502,
+                  "medium": 478,
+                  "xhigh": 510
+                }
+              }
+            }
+          }
+        },
+        "thresholds": {
+          "chatgpt_weekly_pct": 90,
+          "fable_weekly_pct": 80,
+          "session_pct": 90,
+          "sonnet_weekly_pct": 90,
+          "staleness_seconds": 1200,
+          "weekly_pct": 85
+        }
+      },
+      "symbol_name": "scalemass"
+    }
+  ],
+  "schema_version": 2
+}

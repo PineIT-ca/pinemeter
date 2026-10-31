@@ -1,0 +1,1 @@
+pinemeterd: command not permitted

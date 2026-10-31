@@ -1,0 +1,875 @@
+{
+  "v": 1,
+  "injections": [
+    {
+      "path": "/",
+      "values": {
+        "origin": "llm",
+        "proposal": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "proposals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "llm_quality": {
+          "claude-opus-5-5": {
+            "high": 999999999,
+            "_default": 999999999
+          },
+          "gpt-6.1-sol": {
+            "high": 0,
+            "medium": 0
+          }
+        },
+        "benchmark_mapping": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "new_model_placements": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "retirement_removals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "dominance_findings": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "/presets/*",
+      "values": {
+        "origin": "llm",
+        "proposal": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "proposals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "llm_quality": {
+          "claude-opus-5-5": {
+            "high": 999999999,
+            "_default": 999999999
+          },
+          "gpt-6.1-sol": {
+            "high": 0,
+            "medium": 0
+          }
+        },
+        "benchmark_mapping": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "new_model_placements": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "retirement_removals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "dominance_findings": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "/presets/*/rules",
+      "values": {
+        "origin": "llm",
+        "proposal": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "proposals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "llm_quality": {
+          "claude-opus-5-5": {
+            "high": 999999999,
+            "_default": 999999999
+          },
+          "gpt-6.1-sol": {
+            "high": 0,
+            "medium": 0
+          }
+        },
+        "benchmark_mapping": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "new_model_placements": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "retirement_removals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "dominance_findings": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "/presets/*/rules/scoring",
+      "values": {
+        "origin": "llm",
+        "proposal": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "proposals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "llm_quality": {
+          "claude-opus-5-5": {
+            "high": 999999999,
+            "_default": 999999999
+          },
+          "gpt-6.1-sol": {
+            "high": 0,
+            "medium": 0
+          }
+        },
+        "benchmark_mapping": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "new_model_placements": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "retirement_removals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "dominance_findings": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "/presets/*/rules/scoring/roles/*",
+      "values": {
+        "origin": "llm",
+        "proposal": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "proposals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "llm_quality": {
+          "claude-opus-5-5": {
+            "high": 999999999,
+            "_default": 999999999
+          },
+          "gpt-6.1-sol": {
+            "high": 0,
+            "medium": 0
+          }
+        },
+        "benchmark_mapping": {
+          "origin": "llm",
+          "kind": "benchmark-mapping",
+          "pick": {
+            "decision_id": "synthetic-pick",
+            "route": "codex",
+            "model": "gpt-6-astra"
+          },
+          "quality": {
+            "claude-opus-5-5": {
+              "high": 999999999,
+              "_default": 999999999
+            },
+            "gpt-6.1-sol": {
+              "high": 0,
+              "medium": 0
+            }
+          },
+          "floor": -999999999,
+          "latency_limit": 0,
+          "order": [
+            "gpt-6.1-sol",
+            "claude-opus-5-5"
+          ]
+        },
+        "new_model_placements": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "retirement_removals": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ],
+        "dominance_findings": [
+          {
+            "origin": "llm",
+            "kind": "benchmark-mapping",
+            "pick": {
+              "decision_id": "synthetic-pick",
+              "route": "codex",
+              "model": "gpt-6-astra"
+            },
+            "quality": {
+              "claude-opus-5-5": {
+                "high": 999999999,
+                "_default": 999999999
+              },
+              "gpt-6.1-sol": {
+                "high": 0,
+                "medium": 0
+              }
+            },
+            "floor": -999999999,
+            "latency_limit": 0,
+            "order": [
+              "gpt-6.1-sol",
+              "claude-opus-5-5"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
