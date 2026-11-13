@@ -1,0 +1,5 @@
+// Debug exceptions require both operator host macros. Release does not include this config.
+// Local file example (synthetic hosts only):
+// INFOPLIST_OTHER_PREPROCESSOR_FLAGS = $(inherited) -DPINEMETER_LOCAL_HOST_A=gpu-a.example -DPINEMETER_LOCAL_HOST_B=gpu-b.example
+INFOPLIST_OTHER_PREPROCESSOR_FLAGS = -traditional
+#include? "../Pinemeter.local-probes.xcconfig"
